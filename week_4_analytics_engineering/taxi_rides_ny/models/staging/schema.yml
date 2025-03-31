@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: staging
-    database: "{{ env_var('DBT_DATABASE', 'taxi-rides-ny-339813-412521') }}"
+    database: "{{ env_var('DBT_DATABASE', 'sublime-sunspot-251903') }}"
     schema: "{{ env_var('DBT_SCHEMA', 'trips_data_all') }}"
       # loaded_at_field: record_loaded_at
     tables:
@@ -10,8 +10,27 @@ sources:
       - name: yellow_tripdata
          # freshness:
            # error_after: {count: 6, period: hour}
+      - name: fhv_tripdata_partitioned
 
 models:
+    - name: fhv_tripdata_partitioned
+      description: >
+        X
+      columns:
+        - name: dispatching_base_num
+          description: X
+        - name: pickup_datetime
+          description: X
+        - name: dropOff_datetime
+          description: X
+        - name: PUlocationID
+          description: X
+        - name: DOlocationID
+          description: X
+        - name: SR_Flag
+          description: X
+        - name: Affiliated_base_number
+          description: X
     - name: stg_green_tripdata
       description: >
         Trip made by green taxis, also known as boro taxis and street-hail liveries.
